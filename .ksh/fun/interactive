@@ -1,0 +1,10 @@
+#!/ussr/bin/env ksh
+# is_interactive returns 0 if this shell is interactive
+# (Courtesy of "UNIX F.A.Q.," 1993)
+function interactive
+{
+    case $- in
+        *i*)    return 0 ;;
+        *)      return 1 ;;
+    esac
+}

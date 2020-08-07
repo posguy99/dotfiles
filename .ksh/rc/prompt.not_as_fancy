@@ -1,0 +1,104 @@
+#!/usr/bin/env ksh
+
+# not as fancy prompt
+
+[[ "${LC_ALL}/${LANG}" = ~(Elr)(.*UTF-8/.*|/.*UTF-8) ]] && .sh.ellipses=$'\u[2026]' || .sh.ellipses='...'
+
+.sh.ellipses='...'
+.sh.path_comps=3
+
+# dicipline finction for setting PS1.  ksh93u+ includes a slightly different one from dgk
+# I use this one because I didn't know about the other one
+# https://blog.fpmurphy.com/2016/08/bash-like-customizable-prompt-in-korn-shell.html
+
+function PS1.set
+{
+    typeset prefix remaining=${.sh.value} var= n= k=
+    set -A .sh.lversion ${.sh.version}
+
+    while [[ $remaining ]]
+    do
+        prefix=${remaining%%'\'*}
+        remaining=${remaining#$prefix}
+        var+="$prefix"
+
+        case ${remaining:1:1} in
+            A)    var+="\$(printf '%(%R)T')";;
+            b)    var+="\$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')";;
+            @)    var+="\$(printf '%(%l:%M %p)T')";;  # was var+="\$(printf '%(%H:%M %p)T')"
+            d)    var+="\$(printf '%(%a %b:%d)T')";;
+            e)    var+="\$'\e'";;
+            h)    var+=$(hostname -s);;
+            H)    var+=$(hostname);;
+            j)    var+="\$(jobs | wc -l)";;
+            l)    var+="\$(basename \"\$(tty)\")";;
+            n)    var+=$'\n';;
+            p)    var+="\${_relative_pwd}" ;; # added this one to the list
+            r)    var+=$'\r';;
+            s)    var+="\$(basename \"\$0\")";;
+            S)    var+="\${SHLVL}" ;; # added this one to the list
+            t)    var+="\$(printf '%(%H:%M:%S)T')";;
+            T)    var+="\$(printf '%(%I:%M:%S)T')";;
+            u)    var+=$USER;;
+            v)    var+="\${.sh.lversion[2]}";;
+            V)    var+="\${.sh.lversion[2]} (\${.sh.lversion[1]})";;
+            w)    var+="\$(pwd)";;
+            W)    var+="\$(basename \"\$(pwd)\")";;
+          '#')    var+=!;;
+            !)    var+=!;;
+          '$')    if (( $(id -u) == 0 ))
+                  then
+                      var+='#'
+                  else
+                      var+='$'
+                  fi;;
+          '\')    var+='\\';;
+      '['|']')    ;;
+        [0-7])    case ${remaining:1:3} in
+                   [0-7][0-7][0-7])   k=4;;
+                            [0-7][0-7])   k=3;;
+                                     *)   k=2;;
+                  esac
+                  eval n="\$'"${remaining:0:k}"'"
+                  var+=$n
+                  remaining=${remaining:k}
+                  continue ;;
+           "")    ;;
+            *)    var+='\'${remaining:0:2};;
+        esac
+        remaining=${remaining:2}
+    done
+    .sh.value=$var
+}
+
+function _relative_pwd.get
+{
+    typeset IFS c i l p p1
+    integer n=${.sh.path_comps}
+    typeset p="${PWD}"
+	typeset p1="${p:0:${#HOME}}"
+
+	[[ ${p1} < ${HOME} || ${p1} > ${HOME} ]] && : || p="~${p:${#HOME}}"
+	IFS="/" c=( ${p} )
+	l=${#c[@]}
+	[[ ${p:0:1} == "~" ]] && (( l-1 == n )) && (( n++ ))
+	if (( l > n )); then
+		[[ -n ${.sh.ellipses} ]] && p="${.sh.ellipses}/" || p=""
+		for (( i=l-n ; i < l ; i++ )) ; do
+			p+="${c[$i]}/"
+		done
+		#[[ ${p1} == ${HOME} ]] && p="~/${p:0:${#p}-1}" || p="/${p:0:${#p}-1}"
+	fi
+	.sh.value="${p}"
+}
+
+# set prompt
+
+#PS1='${RED}[\@]${OFF}${BLUE}[\l]${OFF}${YELLOW}[\S]${OFF}\n\h \$ '
+
+case $TERM in
+    # xterm and variants, set the titlebar
+    xterm*) PS1='${TITLEBAR}[\u@\h][\p]${BELL}${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
+    # anything else, don't try to set the titlebar
+    *) PS1='${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
+esac

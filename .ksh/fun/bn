@@ -1,0 +1,23 @@
+#!/usr/bin/env ksh
+
+# from answer by PSKocik
+# https://unix.stackexchange.com/questions/253524/dirname-and-basename-vs-parameter-expansion
+
+function bn
+{
+  test -n "$1" || return 0
+  typeset x="$1"; while :; do case "$x" in */) x="${x%?}";; *) break;; esac; done
+  [ -n "$x" ] || { printf "/\n"; return; }
+  printf '%s\n' "${x##*/}";
+}
+
+function dn
+{
+  test -n "$1" || return 0
+  typeset x="$1"; while :; do case "$x" in */) x="${x%?}";; *) break;; esac; done
+  [ -n "$x" ] || { printf "/\n"; return; }
+  set -- "$x"; x="${1%/*}"
+  case "$x" in "$1") x=.;; "") x=/;; esac
+  printf '%s\n' "$x"
+}
+
