@@ -40,4 +40,4 @@ alias cp='cp -i'
 # from jaybe on #macosx
 alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
 
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'"
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
