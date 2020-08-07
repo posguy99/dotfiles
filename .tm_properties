@@ -1,0 +1,26 @@
+# Settings
+
+tabSize         = 4
+fontName        = 'Menlo'
+fontSize        = 14
+theme           = '766026CB-703D-4610-B070-8DE07D967C5F'
+softTabs        = true
+softWrap        = true
+encoding        = UTF-8
+lineEndings     = '\n'
+showInvisibles  = false
+
+[text]
+SpellChecking   = true
+softWrap        = false
+
+[text.plain]
+spellChecking   = true
+softWrap        = true
+
+[source.tm-properties]
+spellChecking   = false
+
+[text.html.markdown]
+scopeAttributes = attr.keep-whitespace
+
