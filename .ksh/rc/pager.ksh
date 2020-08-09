@@ -2,9 +2,9 @@
 
 # set the pager to use
 
-if [[ -e $(which most) ]] ; then                    # is most(1) pager on the path?
-    export PAGER=$(which most)                      # set it as the pager
-elif [[ -e $(which less) ]] ; then
+if whence -pq most; then                            # is most(1) pager on the path?
+    export PAGER=$(whence -p most)                  # set it as the pager
+elif whence -pq less; then
     # LESS
     # g    == highlight only the particular string which was found by the last search
     # i.   == case-insensitive search
@@ -23,7 +23,7 @@ elif [[ -e $(which less) ]] ; then
     #export LESS='-giMR -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
     #export LESS='-giR -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
     export LESSOPEN="|/Users/mwilson/bin/lesspipe.sh %s"
-    export PAGER=$(which less)
+    export PAGER=$(whence -p less)
 else
-    export PAGER=$(which more)
+    export PAGER=$(whence -p more)
 fi
