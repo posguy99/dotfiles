@@ -58,4 +58,7 @@ alias tree='find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g''
 # # other branch:
 #
 # git rebase upstream/master
+
+alias update_github='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
+
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
