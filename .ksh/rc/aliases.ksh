@@ -38,7 +38,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 
 # from jaybe on #macosx
-alias tree='find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g''
+alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 
 # # Add the remote, call it "upstream":
 #
