@@ -11,7 +11,8 @@ lineEndings     = '\n'
 showInvisibles  = false
 
 # variables
-TM_GIT           = "/opt/local/bin/git"
+TM_GIT           = '/usr/local/bin/git'
+PATH             = '/opt/local/bin:/usr/local/bin:/usr/texbin:$PATH'
 
 [text]
 SpellChecking   = true
