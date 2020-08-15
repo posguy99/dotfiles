@@ -8,7 +8,7 @@ else
     alias bc='bc -q'
 fi
 
-if [[ -e $(which rmate) ]] ; then                    # is rmate on the path?
+if whence -pq rmate ; then                    # is rmate on the path?
     alias rmate='rmate --host auto'
 else
     alias rmate='printf "You will need to install rmate from https://github.com/sclukey/rmate-python\n"'
@@ -26,7 +26,10 @@ alias l='ls -CFG'
 
 alias m='most -t4'
 
-alias md=mkdir
+# stupid dos tricks...
+alias md='mkdir'
+alias rd='rmdir'
+alias cd..='cd ..'
 
 alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
 
@@ -39,6 +42,9 @@ alias cp='cp -i'
 
 # from jaybe on #macosx
 alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
+
+# manage dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # # Add the remote, call it "upstream":
 #
@@ -60,5 +66,3 @@ alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 # git rebase upstream/master
 
 alias update_github='git fetch upstream && git checkout master && git rebase upstream/master && git push origin master'
-
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
