@@ -1,0 +1,113 @@
+# .kshrc
+
+# Source global definitions
+if [ -f /etc/kshrc ]; then
+        . /etc/kshrc
+fi
+
+# ####
+# variables
+# ####
+
+PATH=$PATH:$HOME/bin
+PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
+HOSTNAME=`hostname -s`
+
+RED=$(echo -e "\033[0;31m")
+BLUE=$(echo -e "\033[0;36m")
+YELLOW=$(echo -e "\033[0;33m")
+OFF=$(echo -e "\033[0m")
+
+CURR_TTY=$(tty | sed -e "s:/dev/::")
+
+# ####
+# export to parent shell
+# ####
+
+export EDITOR="/usr/local/bin/mate -w"
+export VISUAL=${EDITOR}
+
+export PAGER="less"
+export LESS='-giMR -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
+export LESSOPEN="|/Users/mwilson/bin/lesspipe.sh %s"
+
+export BC_ENV_ARGS=~/.bcrc
+
+# use emacs editing mode by default
+
+keybd_trap () {
+  case ${.sh.edchar} in
+    $'\e[1~') .sh.edchar=$'\001';; # Home = beginning-of-line
+    $'\e[4~') .sh.edchar=$'\005';; # End = end-of-line
+    $'\e[5~') .sh.edchar=$'\e>';; # PgUp = history-previous
+    $'\e[6~') .sh.edchar=$'\e<';; # PgDn = history-next
+    $'\e[3~') .sh.edchar=$'\004';; # Delete = delete-char
+  esac
+}
+trap keybd_trap KEYBD
+
+set -o emacs
+
+# alias __A=`echo "\020"`     # up arrow = ^p = back a command
+# alias __B=`echo "\016"`     # down arrow = ^n = down a command
+# alias __C=`echo "\006"`     # right arrow = ^f = forward a character
+# alias __D=`echo "\002"`     # left arrow = ^b = back a character
+# alias __H=`echo "\001"`     # home = ^a = start of line
+# alias __Y=`echo "\005"`     # end = ^e = end of line
+
+# ####
+# User specific aliases and functions
+# ####
+
+# titlebar sets the xterm titlebar
+titlebar () { echo -e "\033]0;[$USER@$HOSTNAME] [ `short_path` ]\007"; }
+
+# curr_time returns the time formatted the way I want it
+curr_time() { date +'%l:%M %p'; }
+
+# short_path truncates $PWD to the last two elements, and prefixes an
+# ellipsis mark and/or arrow if necessary
+short_path() { echo $PWD \
+                | rev \
+                | awk -F/ '{ if (NF>3) {A=$1"/"$2"/.."} else
+                                if (NF==3) {A=$1"/"$2"/"} else
+                                    if (NF<3) {A=$1"/"$2}
+                                        print (length(A)>45 ? substr(A,1,45)" <<" : A) }' \
+                | rev; }
+
+# is_interactive returns 0 if this shell is interactive
+# (Courtesy of "UNIX F.A.Q.," 1993)
+is_interactive() { case $- in
+                    *i*)    return 0
+                    ;;
+                    *)      return 1
+                    ;;
+                   esac
+                }
+
+alias ls='ls -GF'
+alias ll='ls -lG'
+alias la='ls -AG'
+alias l='ls -CFG'
+
+alias cdb='cd $OLDPWD'
+
+alias mc='. /opt/kroleg/mc/libexec/mc/mc-wrapper.sh'
+
+alias pu='pushd'
+alias po='popd'
+alias pr1='enscript -1 -G -j -M letter -R'
+alias pr2='enscript -2 -G -j -M letter -r'
+alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
+
+# this is bad, should NOT do this...
+alias mv='mv -i'
+alias rm='rm -i'
+
+# ####
+# set prompt
+# ####
+
+export PS1=$'$(titlebar)${RED}[$(curr_time)]${OFF}${BLUE}[${CURR_TTY}]${OFF}${YELLOW}[$(short_path)]${OFF}\n${HOSTNAME} $ '
+
