@@ -54,4 +54,6 @@ if [[ -e $RCPATH ]] ; then
     unset -v ksh
 fi
 
+echo $KSH_VERSION
+
 # done
