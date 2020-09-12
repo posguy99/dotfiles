@@ -1,7 +1,8 @@
 #!/usr/bin/env ksh
 
 # set up home/end/pgup/pgdn/fwddel
-# apparently everyone else uses the keybind thing from the bolsky book
+# this is the RHEL way of defining keys
+# apparently almost everyone else uses the keybind thing from the Bolsky book
 # but you can't see what that does in the environment
 
 keybd_trap () {
@@ -15,6 +16,47 @@ keybd_trap () {
   esac
 }
 trap keybd_trap KEYBD
+
+# from Bolsky, page 98
+
+# typeset -A Keytable
+# trap 'eval "${Keytable[${.sh.edchar}]}"' KEYBD
+# unset -f keybind
+# function keybind # key [action]
+# {
+#     typeset key=$(print -f "%q" "$2")
+#     case $# in
+#         2)  Keytable[$1]=' .sh.edchar=${.sh.edmode}'"$key"
+#             ;;
+#         1)  unset Keytable[$1]
+#             ;;
+#         *)  print -u2 "Usage: $0 key [action]"
+#             return 2 # usage errors return 2 by default
+#             ;;
+#     esac
+# }
+
+# TAB and cursor keys:
+#
+# keybind $'\E[D' $'\002'
+# keybind $'\E[C' $'\006'
+# keybind $'\E[B' $'\016'
+# keybind $'\E[A' $'\020'
+# keybind $'\t' $'\E\E'
+
+# another way to do the same thing, from https://github.com/larsklemstein/dotfiles/blob/master/dot.kshrc
+
+# Use keyboard trap to map keys to other keys
+# note that escape sequences vary for different terminals so these
+# may not work for you
+# trap '.sh.edchar=${keymap[${.sh.edchar}]:-${.sh.edchar}}' KEYBD
+# keymap=(
+#   [$'\eOD']=$'\eb'   # Ctrl-Left  -> move word left
+#   [$'\eOC']=$'\ef'   # Ctrl-Right -> move word right
+#   [$'\e[3~']=$'\cd'  # Delete     -> delete to right
+#   [$'\e[1~']=$'\ca'  # Home       -> move to beginning of line
+#   [$'\e[4~']=$'\ce'  # End        -> move to end of line
+# )
 
 # ksh88 setting of line-editing characters...
 # apparently ksh93 does it too, the below is from the ksh93 man page
