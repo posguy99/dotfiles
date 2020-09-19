@@ -1,6 +1,9 @@
 # .kshrc
 # msw@cox.net
 
+# skip this setup for non-interactive shells
+[[ -o interactive && -t 0 ]] || return
+
 # Source global definitions
 # should this be necessary or should /etc/profile be doing it?
 # Mac doesn't have one...
