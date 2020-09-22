@@ -8,7 +8,7 @@ softTabs        = true
 softWrap        = true
 encoding        = UTF-8
 lineEndings     = '\n'
-showInvisibles  = false
+# showInvisibles  = false
 
 # variables
 TM_GIT           = '/usr/local/bin/git'
@@ -27,3 +27,4 @@ spellChecking   = false
 
 [text.html.markdown]
 scopeAttributes = attr.keep-whitespace
+
