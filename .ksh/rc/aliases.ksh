@@ -33,7 +33,7 @@ alias cd..='cd ..'
 
 alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
 
-alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 && defaults delete com.apple.preferences.softwareupdate LatestMajorOSSeenByUserBundleIdentifier && killall Dock'
+alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0 && defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier && killall Dock'
 
 # this is bad, should NOT do this...
 # leads to BAD habits
