@@ -2,7 +2,7 @@
 
 # variables
 
-CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing/ Education
+CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing\ Education
 FIGNORE='@(*.o|~*)'
 
 # colors
