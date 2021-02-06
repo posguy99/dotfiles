@@ -203,3 +203,9 @@ fi
 #$Id: .bashrc,v 1.23 2005/02/15 08:09:56 mwilson Exp mwilson $
 
 # vim: nu tw=0 ts=4
+
+# Created by `userpath` on 2021-02-06 17:26:28
+export PATH="$PATH:/Users/mwilson/.local/bin"
+
+# Created by `userpath` on 2021-02-06 17:26:29
+export PATH="$PATH:/Users/mwilson/Library/Python/3.9/bin"
