@@ -74,7 +74,7 @@ function _git_status.get
 #    .sh.value=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
     typeset branch commit return
     branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
-    [ -z "$var" ] && commit=$(git rev-parse --short HEAD 2> /dev/null) && return="${branch%]}@${commit}]"
+    [[ -n "$branch" ]] && commit=$(git rev-parse --short HEAD 2> /dev/null) && return="${branch%]}@${commit}]"
     .sh.value=${return}
 }
 
