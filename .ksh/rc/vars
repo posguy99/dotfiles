@@ -4,6 +4,7 @@
 
 CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing\ Education
 FIGNORE='@(*.o|~*)'
+OSTYPE=$(uname)
 
 # colors
 

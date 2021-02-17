@@ -19,10 +19,21 @@ alias cls='tput clear'
 
 alias grep='grep --color=auto'
 
-alias ls='ls -GF'
-alias ll='ls -lG'
-alias la='ls -AG'
-alias l='ls -CFG'
+if [[ "$OSTYPE" == "Linux" ]]; then
+    # linux
+
+    alias ls='ls -F --color=auto'
+    alias ll='ls -l --color=auto'
+    alias la='ls -A --color=auto'
+    alias l='ls -CF -- color=auto'
+elif [[ "$OSTYPE" == "Darwin" ]]; then
+    # Mac OSX
+
+    alias ls='ls -GF'
+    alias ll='ls -lG'
+    alias la='ls -AG'
+    alias l='ls -CFG'
+fi
 
 alias m='most -t4'
 
