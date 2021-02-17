@@ -71,7 +71,6 @@ function PS1.set
 # for now all it does is get the current branch, if there is one.
 function _git_status.get
 {
-#    .sh.value=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
     typeset branch commit return
     branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
     [[ -n "$branch" ]] && commit=$(git rev-parse --short HEAD 2> /dev/null) && return="${branch%]}@${commit}]"
