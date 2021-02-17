@@ -25,7 +25,7 @@ if [[ "$OSTYPE" == "Linux" ]]; then
     alias ls='ls -F --color=auto'
     alias ll='ls -l --color=auto'
     alias la='ls -A --color=auto'
-    alias l='ls -CF -- color=auto'
+    alias l='ls -CF --color=auto'
 elif [[ "$OSTYPE" == "Darwin" ]]; then
     # Mac OSX
 
