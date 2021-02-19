@@ -21,18 +21,18 @@ alias grep='grep --color=auto'
 
 if [[ "$OSTYPE" == "Linux" ]]; then
     # linux
-
     alias ls='ls -F --color=auto'
     alias ll='ls -l --color=auto'
     alias la='ls -A --color=auto'
     alias l='ls -CF --color=auto'
 elif [[ "$OSTYPE" == "Darwin" ]]; then
     # Mac OSX
-
     alias ls='ls -GF'
     alias ll='ls -lG'
     alias la='ls -AG'
     alias l='ls -CFG'
+    alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
+    alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
 fi
 
 alias m='most -t4'
@@ -41,10 +41,6 @@ alias m='most -t4'
 alias md='mkdir'
 alias rd='rmdir'
 alias cd..='cd ..'
-
-alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
-
-alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
 
 # this is bad, should NOT do this...
 # leads to BAD habits
