@@ -1,2 +1,0 @@
-# make a directory and cd into it
-function mcd { mkdir -p "$@" && eval cd "\"\$$#\""; }  
