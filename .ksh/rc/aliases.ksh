@@ -2,23 +2,6 @@
 
 # aliases
 
-if [[ -e $HOME/.bcrc ]]; then
-    alias bc='bc -q $HOME/.bcrc'
-else
-    alias bc='bc -q'
-fi
-
-if whence -pq rmate ; then                    # is rmate on the path?
-    alias rmate='rmate --host auto'
-else
-    alias rmate='printf "You will need to install rmate from https://github.com/sclukey/rmate-python\n"'
-fi
-
-alias cdb='cd $OLDPWD'
-alias cls='tput clear'
-
-alias grep='grep --color=auto'
-
 if [[ "$OSTYPE" == "Linux" ]]; then
     # linux
     alias ls='ls -F --color=auto'
@@ -35,6 +18,30 @@ elif [[ "$OSTYPE" == "Darwin" ]]; then
     alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
 fi
 
+# set up rmate
+if whence -pq rmate ; then
+    alias rmate='rmate --host auto'
+else
+    alias rmate='printf "You will need to install rmate from https://github.com/sclukey/rmate-python\n"'
+fi
+
+# load bcrc if it exists since it doesn't happen automatically
+if [[ -e $HOME/.bcrc ]]; then
+    alias bc='bc -q $HOME/.bcrc'
+else
+    alias bc='bc -q'
+fi
+
+alias cdb='cd $OLDPWD'
+alias cls='tput clear'
+
+alias df='df -h'
+alias du='du -ch'
+
+alias grep='grep --color=auto'
+alias egrep='grep --color=auto'
+alias fgrep='grep --color=auto'
+
 alias m='most -t4'
 
 # stupid dos tricks...
@@ -48,12 +55,16 @@ alias cd..='cd ..'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
+alias ln='ln -i'
 
 # from jaybe on #macosx
 alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 
 # manage dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# human readable path
+alias path='printf "${PATH//:/\\n}\n"'
 
 # # Add the remote, call it "upstream":
 #
