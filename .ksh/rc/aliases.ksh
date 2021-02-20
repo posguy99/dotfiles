@@ -57,6 +57,9 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ln='ln -i'
 
+# psgrep using options common to both macOS and LInux
+alias psgrep="ps aux | grep -v grep | grep $1"
+
 # from jaybe on #macosx
 alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 
