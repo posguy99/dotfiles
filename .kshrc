@@ -21,7 +21,7 @@ PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 set -o emacs                        # edit mode
 set -o histexpand                   # csh-style history (have to think about this, on for now)
-set +o multiline                    # turn off multiline mode ref: https://github.com/ksh93/ksh/issues/71
+set -o multiline                    # turn off multiline mode ref: https://github.com/ksh93/ksh/issues/71
 set -o ignoreeof                    # don't exit on ctrl-d
 set -o nolog                        # don't save function defs in history (have to think about this)
 
