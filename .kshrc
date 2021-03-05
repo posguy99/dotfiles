@@ -35,6 +35,9 @@ FPATH=$FOLDER/fun
 mkdir -p $FOLDER/rc                 # location of user rc files
 RCPATH=$FOLDER/rc
 
+mkdir -p $HOME/.vim/backups	    # so vimrc doesn't error out
+mkdir -p $HOME/.vim/colors
+
 HOSTNAME=$(hostname -s)             # hostname
 
 mkdir -p $FOLDER/histfiles          # location of history files
