@@ -5,6 +5,9 @@
 # apparently almost everyone else uses the keybind thing from the Bolsky book
 # but you can't see what that does in the environment
 
+# removed the below, I misread that, it is obviously meant for vi mode
+#    $'\030')  .sh.edchar=$'\001\013';;  # ctrl-x = delete line according to New Kornshell book, Mac uses ^U
+
 keybd_trap () {
   case ${.sh.edchar} in
     $'\e[1~') .sh.edchar=$'\001';;      # Home = beginning-of-line
@@ -12,7 +15,6 @@ keybd_trap () {
     $'\e[5~') .sh.edchar=$'\e>';;       # PgUp = history-previous
     $'\e[6~') .sh.edchar=$'\e<';;       # PgDn = history-next
     $'\e[3~') .sh.edchar=$'\004';;      # Delete = delete-char
-    $'\030')  .sh.edchar=$'\001\013';;  # ctrl-x = delete line according to New Kornshell book, Mac uses ^U
   esac
 }
 trap keybd_trap KEYBD
