@@ -62,7 +62,7 @@ trap keybd_trap KEYBD
 
 # ksh88 setting of line-editing characters...
 # apparently ksh93 does it too, the below is from the ksh93 man page
-# but I couldn’t get it to work.
+# but I couldn't get it to work.
 
 # from ksh93-20120801 man page...
 # M-letter  Soft-key  - Your alias list is searched for an alias by the name _letter and if an alias of
