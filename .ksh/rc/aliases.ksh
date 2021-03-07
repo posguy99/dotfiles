@@ -39,8 +39,8 @@ alias df='df -h'
 alias du='du -ch'
 
 alias grep='grep --color=auto'
-alias egrep='grep --color=auto'
-alias fgrep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 
 alias m='most -t4'
 
