@@ -4,6 +4,6 @@
 
 function DATE.get { .sh.value=$(date +%D) ; }
 
-function TIME.get { .sh.value=$(date +%r) ; }
+function TIME.get { .sh.value=$(date '+%r %Z') ; }
 
 function DATETIME.get { .sh.value=$(date +%c) ; }
