@@ -5,27 +5,15 @@
 [[ -o interactive && -t 0 ]] || return
 
 # Source global definitions
-# should this be necessary or should /etc/profile be doing it?
-# Mac doesn't have one...
 
-if [ -f /etc/kshrc ]; then
-        . /etc/kshrc
+if [ -f /etc/ksh.kshrc ]; then
+        . /etc/ksh.kshrc
 fi
 
 # path
 
 PATH=$PATH:$HOME/bin
 PATH=/opt/local/bin:/opt/local/sbin:$PATH
-
-# options
-
-set -o emacs                        # edit mode
-set +o histexpand                   # csh-style history off (I like it, but got bit twice now, so it goes)
-set -o multiline                    # turn on multiline mode ref: https://github.com/ksh93/ksh/issues/71
-set -o ignoreeof                    # don't exit on ctrl-d
-set -o nolog                        # don't save function defs in history (have to think about this)
-set -o notify			    # immediate notification from background jobs
-set -o trackall			    # does this really increase performance on modern systems?
 
 FOLDER=$HOME/.ksh                   # base folder for configuration and history
 
@@ -62,6 +50,16 @@ if [[ -e $RCPATH ]] ; then
     unset -v ksh
 fi
 
-ver		# display version string
+# options
+
+set -o emacs                        # edit mode
+set +o histexpand                   # csh-style history off (I like it, but got bit twice now, so it goes)
+set -o multiline                    # turn on multiline mode ref: https://github.com/ksh93/ksh/issues/71
+set -o ignoreeof                    # don't exit on ctrl-d
+set -o nolog                        # don't save function defs in history (have to think about this)
+set -o notify                       # immediate notification from background jobs
+set -o trackall                     # does this really increase performance on modern systems?
+
+ver                                 # display version string
 
 # done
