@@ -51,6 +51,8 @@ alias md='mkdir'
 alias rd='rmdir'
 alias cd..='cd ..'
 
+alias edit=\${EDITOR}
+
 # this is bad, should NOT do this...
 # leads to BAD habits
 
