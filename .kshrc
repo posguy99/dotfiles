@@ -62,6 +62,6 @@ if [[ -e $RCPATH ]] ; then
     unset -v ksh
 fi
 
-echo $KSH_VERSION
+ver		# display version string
 
 # done
