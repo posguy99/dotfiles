@@ -1,30 +1,21 @@
 #!/usr/bin/env ksh
 
-# took out the GUI editors, they're nice, but now that I'm doing so much SSH
-# it bites hard when it tries to launch one as $EDITOR or $VISUAL
+# list of editors that might be installed on the system
+# in reverse order of desirability for me to use
+# the last one it finds is obv the one that will be used
 
-# find an editor to use.  Note: using textmate will break crontab -e
+editors="nano vi vim mg"
 
-# if [[ -e /usr/local/bin/mate ]]; then
-#     export EDITOR='/usr/local/bin/mate -w'              # textmate is preferred
-# elif [[ -e /usr/local/bin/bbedit ]] ; then
-#     export EDITOR='/usr/local/bin/bbedit -w'            # BBEdit otherwise
-# elif whence -pq mg; then
+for index in $editors; do
+    if whence -pq $index; then
+        EDITOR=$(whence -p $index)
+    fi
+done
 
-if whence -pq mg; then
-    export EDITOR=$(whence -p mg)                       # microemacs is acceptable
-else
-    export EDITOR=$(whence -p vi)                       # vi should always be there
-fi
+VISUAL=${EDITOR}
+FCEDIT=${EDITOR}
+HISTEDIT=${FCEDIT}
 
-export VISUAL=${EDITOR}
+unset editors index
 
-# set FCEDIT to an editor that runs in a terminal
-
-if whence -pq mg; then
-    export FCEDIT=$(whence -p mg)                       # microemacs
-else
-    export FCEDIT=$(whence -p vi)                       # vi should always be there
-fi
-
-export HISTEDIT=${FCEDIT}
+export EDITOR VISUAL FCEDIT HISTEDIT
