@@ -4,6 +4,7 @@
 
 if whence -pq most; then                            # is most(1) pager on the path?
     export PAGER=$(whence -p most)                  # set it as the pager
+    export MOST_SWITCHES="-t4"                      # tabs are four spaces
 elif whence -pq less; then
     # LESS
     # g    == highlight only the particular string which was found by the last search
