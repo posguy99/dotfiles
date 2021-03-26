@@ -20,7 +20,7 @@
 
 # yes, really
 
-editors="nano vi vim mg"
+editors="nano vi vim jed mg"
 
 for index in $editors; do
     if whence -pq $index; then
