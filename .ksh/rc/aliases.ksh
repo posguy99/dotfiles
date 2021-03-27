@@ -8,7 +8,6 @@ if [[ "$OSTYPE" == "linux" ]]; then
     alias ll='ls -l --color=auto'
     alias la='ls -A --color=auto'
     alias l='ls -CF --color=auto'
-    alias nano='nano --rcfile ~/.nanorc-linux'
 elif [[ "$OSTYPE" == "darwin" ]]; then
     # Mac OSX
     alias ls='ls -GF'
@@ -17,6 +16,13 @@ elif [[ "$OSTYPE" == "darwin" ]]; then
     alias l='ls -CFG'
     alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
     alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
+fi
+
+# deal with stupid nano differences in a terrible way
+if [[ -e $HOME/.nanorc-${HOSTNAME} ]]; then
+    alias nano="nano --rcfile ~/.nanorc-${HOSTNAME}"
+elif [[ -e $HOME/.nanorc-${OSTYPE} ]]; then
+    alias nano="nano --rcfile ~/.nanorc-${OSTYPE}"
 fi
 
 # set up rmate
