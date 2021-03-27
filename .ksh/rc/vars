@@ -4,7 +4,9 @@
 
 CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing\ Education
 FIGNORE='@(*.o|~*)'
-OSTYPE=$(uname)
+
+# force OSTYPE to always be lower case
+typeset -l OSTYPE=$(uname)
 
 # colors
 

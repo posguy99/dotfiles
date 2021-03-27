@@ -2,13 +2,13 @@
 
 # aliases
 
-if [[ "$OSTYPE" == "Linux" ]]; then
+if [[ "$OSTYPE" == "linux" ]]; then
     # linux
     alias ls='ls -F --color=auto'
     alias ll='ls -l --color=auto'
     alias la='ls -A --color=auto'
     alias l='ls -CF --color=auto'
-elif [[ "$OSTYPE" == "Darwin" ]]; then
+elif [[ "$OSTYPE" == "darwin" ]]; then
     # Mac OSX
     alias ls='ls -GF'
     alias ll='ls -lG'
