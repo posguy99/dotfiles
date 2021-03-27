@@ -39,6 +39,7 @@ set display=lastline        " make sure we can see all of the last line
 set nostartofline           " keep the cursor in current column when possible 
 set ruler                   " cursor position in status line
 set nowrap                  " real linebreaks only, please
+set number                  " line numbers
 
 " provide a mapping to turn wrap on and off
 nmap <Leader>nw :set wrap!<cr>
