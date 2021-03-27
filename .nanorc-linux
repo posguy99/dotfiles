@@ -5,20 +5,18 @@ set boldtext
 set constantshow
 set jumpyscrolling
 set linenumbers
-set minibar
+#set minibar
 set mouse
-set stateflags
+#set stateflags
 set tabsize 4
 set tabstospaces
 set trimblanks
 
-set titlecolor bold,brightwhite,blue
-set promptcolor brightwhite,brightblack
-set statuscolor bold,brightwhite,green
-set errorcolor bold,brightwhite,red
+set titlecolor brightwhite,blue
+set statuscolor brightwhite,green
+set errorcolor brightwhite,red
 set selectedcolor brightwhite,magenta
 set stripecolor ,yellow
-set scrollercolor cyan
 set numbercolor cyan
 set keycolor cyan
 set functioncolor green
