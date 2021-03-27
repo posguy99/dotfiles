@@ -25,6 +25,11 @@ else
     alias rmate='printf "You will need to install rmate from https://github.com/sclukey/rmate-python\n"'
 fi
 
+# make emacs more harmless by not allowing it to open the GUI even if it's there
+if whence -pq emacs ; then
+    alias emacs='emacs -nw'
+fi
+
 # load bcrc if it exists since it doesn't happen automatically
 if [[ -e $HOME/.bcrc ]]; then
     alias bc='bc -q $HOME/.bcrc'
