@@ -8,6 +8,7 @@ if [[ "$OSTYPE" == "linux" ]]; then
     alias ll='ls -l --color=auto'
     alias la='ls -A --color=auto'
     alias l='ls -CF --color=auto'
+    alias nano='nano --rcfile ~/.nanorc-linux'
 elif [[ "$OSTYPE" == "darwin" ]]; then
     # Mac OSX
     alias ls='ls -GF'
