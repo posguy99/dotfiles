@@ -12,6 +12,7 @@
 
 # User specific aliases and functions
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 export BC_ENV_ARGS=~/.bcrc
 #export EDITOR="/usr/local/bin/mate -w"
 export EDITOR="/usr/local/bin/bbedit -w"
