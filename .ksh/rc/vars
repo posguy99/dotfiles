@@ -20,6 +20,8 @@ CYAN=$(printf '\033[0;36m')
 WHITE=$(printf '\033[0;37m')
 OFF=$(printf '\033[0m')
 
+CLICOLOR=1
+
 # xterm titlebar
 
 TITLEBAR=$(printf '\033]0;')
