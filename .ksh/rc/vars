@@ -20,6 +20,7 @@ CYAN=$(printf '\033[0;36m')
 WHITE=$(printf '\033[0;37m')
 OFF=$(printf '\033[0m')
 
+# BSD ls(1) cares about this, GNU ls(1) does not
 CLICOLOR=1
 
 # xterm titlebar
