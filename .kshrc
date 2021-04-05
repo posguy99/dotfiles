@@ -27,7 +27,7 @@ mkdir -p $HOME/.vim/backups	    # so vimrc doesn't error out
 mkdir -p $HOME/.vim/colors
 
 mkdir -p $HOME/.mg.d		    # backup folder for mg(1)
-mkdir -p $HOME/.nano            # backup folder for nano(1)
+mkdir -p $HOME/.nano                # backup folder for nano(1)
 
 HOSTNAME=$(hostname -s)             # hostname
 
