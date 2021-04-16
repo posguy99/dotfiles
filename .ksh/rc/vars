@@ -28,7 +28,7 @@ CLICOLOR=1
 TITLEBAR=$(printf '\033]0;')
 BELL=$(printf '\007')
 
-# I don't like the default macOS sudo password, so change it.
+# I don't like the default macOS sudo password prompt, so change it.
 # wrap it so it only affects macOS
 
 if [[ "$OSTYPE" == "darwin" ]]; then
