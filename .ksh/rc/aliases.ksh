@@ -44,6 +44,10 @@ else
     alias bc='bc -q'
 fi
 
+if whence -pq fdfind ; then
+    alias fd=fdfind
+fi
+
 alias cdb='cd $OLDPWD'
 alias cls='tput clear'
 
