@@ -44,6 +44,7 @@ else
     alias bc='bc -q'
 fi
 
+# Debian-based Linux distros package fd as fd-find and install a symlink fdfind
 if whence -pq fdfind ; then
     alias fd=fdfind
 fi
