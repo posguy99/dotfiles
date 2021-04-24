@@ -12,8 +12,8 @@ fi
 
 # path
 
-PATH=$PATH:$HOME/bin
-PATH=/opt/local/bin:/opt/local/sbin:$PATH
+#PATH=$PATH:$HOME/bin
+#PATH=/opt/local/bin:/opt/local/sbin:$PATH
 
 FOLDER=$HOME/.ksh                   # base folder for configuration and history
 
