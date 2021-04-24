@@ -9,6 +9,9 @@ if [[ "$OSTYPE" == "linux" ]]; then
     alias la='ls -A --color=auto'
     alias l='ls -CF --color=auto'
     alias lsint="ip addr | grep -v ^' ' | cut -d: -f2"
+    if ! whence -pq killall ; then
+        alias killall='pkill -f'
+    fi
 elif [[ "$OSTYPE" == "darwin" ]]; then
     # Mac OSX
     alias ls='ls -GF'
