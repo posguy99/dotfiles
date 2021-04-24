@@ -96,8 +96,7 @@ function _relative_pwd.get
 
 case $TERM in
     # xterm and variants, set the titlebar
-    xterm*) PS1='${TITLEBAR}[\u@\h] [\l +\S] [\p]${BELL}${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
-    # xterm*) PS1='${TITLEBAR}[\u@\h][\p]${BELL}${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
+    xterm*) PS1='${TITLEBAR}[\u@\h] [\l +\S] [\p] \b${BELL}${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
     # anything else, don't try to set the titlebar
     *) PS1='${RED}[\@]${OFF}${BLUE}[\l +\S]${OFF}${YELLOW}[\p]${OFF}${CYAN}\b${OFF}\n${GREEN}[\#]${OFF} \h \$ ' ;;
 esac
