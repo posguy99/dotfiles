@@ -20,6 +20,11 @@ elif [[ "$OSTYPE" == "darwin" ]]; then
     alias l='ls -CFG'
     alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
     alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
+    # sig-v displays the signature
+    # sig-s self-signs, replacing whatever is already there
+    alias uti='mdls -name kMDItemContentType'
+    alias sig-v='codesign --verify --verbose'
+    alias sig-s='codesign -f -s "Marc Wilson" -v'
 fi
 
 # deal with stupid nano differences in a terrible way
