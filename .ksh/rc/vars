@@ -35,5 +35,6 @@ if [[ "$OSTYPE" == "darwin" ]]; then
     export SUDO_PROMPT='[sudo] password for %p:'
 fi
 
-# define a cheat so I can get to my play linode nano
+# define a cheat so I can get to my play linode nanos
 BOUNCER=173.230.149.72
+DEBIAN=50.116.2.62
