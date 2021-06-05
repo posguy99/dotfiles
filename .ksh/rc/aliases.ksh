@@ -58,6 +58,10 @@ if whence -pq fdfind ; then
     alias fd=fdfind
 fi
 
+if whence -pq python3 ; then
+    alias venv='python3 -m venv'
+fi
+
 alias cdb='cd $OLDPWD'
 alias cls='tput clear'
 
