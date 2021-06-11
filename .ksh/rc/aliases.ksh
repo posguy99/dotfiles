@@ -16,28 +16,11 @@ elif [[ -e $HOME/.nanorc-${OSTYPE} ]]; then
     alias nano="nano --rcfile ~/.nanorc-${OSTYPE}"
 fi
 
-# set up rmate
-if whence -pq rmate ; then
-    alias rmate='rmate --host auto'
-else
-    alias rmate='printf "You will need to install rmate from https://github.com/sclukey/rmate-python\n"'
-fi
+[[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
-# make emacs more harmless by not allowing it to open the GUI even if it's there
-if whence -pq emacs ; then
-    alias emacs='emacs -nw'
-fi
-
-# load bcrc if it exists since it doesn't happen automatically
-if [[ -e $HOME/.bcrc ]]; then
-    alias bc='bc -q $HOME/.bcrc'
-else
-    alias bc='bc -q'
-fi
-
-if whence -pq python3 ; then
-    alias venv='python3 -m venv'
-fi
+[[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw'
+[[ -n "$(whence python3)" ]] &&  alias venv='python3 -m venv'
+[[ -n "$(whence most)" ]] && alias m=most
 
 alias cdb='cd $OLDPWD'
 alias cls='tput clear'
@@ -49,9 +32,9 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-if whence -pq most; then
-    alias m='most'
-fi
+#if whence -pq most; then
+#    alias m='most'
+#fi
 
 # stupid dos tricks...
 alias md='mkdir'
@@ -68,7 +51,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ln='ln -i'
 
-# psgrep using options common to both macOS and LInux
+# psgrep using options common to both macOS and Linux
 alias psgrep="ps aux | grep -v grep | grep $1"
 
 # from jaybe on #macosx

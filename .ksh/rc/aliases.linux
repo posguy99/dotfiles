@@ -6,12 +6,12 @@ alias ls='ls -F --color=auto'
 alias ll='ls -l --color=auto'
 alias la='ls -A --color=auto'
 alias l='ls -CF --color=auto'
+
 alias lsint="ip addr | grep -v ^' ' | cut -d: -f2"
-if ! whence -pq killall ; then
-    alias killall='pkill -f'
+
+[[ -z "$(whence killall)" ]] && alias killall='pkill -f'
 
 # Debian-based Linux distros package fd as fd-find and install a symlink fdfind
-if whence -pq fdfind ; then
-    alias fd=fdfind
-fi
+[[ -n "$(whence fdfind)" ]] && alias fd=fdfind
+
 
