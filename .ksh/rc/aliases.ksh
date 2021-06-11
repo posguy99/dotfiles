@@ -1,31 +1,13 @@
 #!/usr/bin/env ksh
 
-# aliases
+# aliases per OS in use
 
-if [[ "$OSTYPE" == "linux" ]]; then
-    # linux
-    alias ls='ls -F --color=auto'
-    alias ll='ls -l --color=auto'
-    alias la='ls -A --color=auto'
-    alias l='ls -CF --color=auto'
-    alias lsint="ip addr | grep -v ^' ' | cut -d: -f2"
-    if ! whence -pq killall ; then
-        alias killall='pkill -f'
-    fi
-elif [[ "$OSTYPE" == "darwin" ]]; then
-    # Mac OSX
-    alias ls='ls -GF'
-    alias ll='ls -lG'
-    alias la='ls -AG'
-    alias l='ls -CFG'
-    alias rebuildLS='/System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain user'
-    alias clearCat='defaults write com.apple.systempreferences AttentionPrefBundleIDs 0;defaults delete com.apple.preferences.SoftwareUpdate LatestMajorOSSeenByUserBundleIdentifier;killall Dock'
-    # sig-v displays the signature
-    # sig-s self-signs, replacing whatever is already there
-    alias uti='mdls -name kMDItemContentType'
-    alias sig-v='codesign --verify --verbose'
-    alias sig-s='codesign -f -s "Marc Wilson" -v'
-fi
+_aliases="$FOLDER/rc/aliases.$OSTYPE"
+
+[[ -e $_aliases ]] && . "$_aliases"
+unset -v _aliases
+
+# aliases for both OS
 
 # deal with stupid nano differences in a terrible way
 if [[ -e $HOME/.nanorc-${HOSTNAME} ]]; then
@@ -51,11 +33,6 @@ if [[ -e $HOME/.bcrc ]]; then
     alias bc='bc -q $HOME/.bcrc'
 else
     alias bc='bc -q'
-fi
-
-# Debian-based Linux distros package fd as fd-find and install a symlink fdfind
-if whence -pq fdfind ; then
-    alias fd=fdfind
 fi
 
 if whence -pq python3 ; then
