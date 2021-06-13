@@ -2,6 +2,9 @@
 
 # variables
 
+# BSD ls(1) cares about this, GNU ls(1) does not
+export CLICOLOR=1
+
 CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing\ Education
 FIGNORE='@(*.o|~*)'
 
@@ -20,9 +23,6 @@ CYAN=$(printf '\033[0;36m')
 WHITE=$(printf '\033[0;37m')
 OFF=$(printf '\033[0m')
 
-# BSD ls(1) cares about this, GNU ls(1) does not
-CLICOLOR=1
-
 # xterm titlebar
 
 TITLEBAR=$(printf '\033]0;')
@@ -31,9 +31,7 @@ BELL=$(printf '\007')
 # I don't like the default macOS sudo password prompt, so change it.
 # wrap it so it only affects macOS
 
-if [[ "$OSTYPE" == "darwin" ]]; then
-    export SUDO_PROMPT='[sudo] password for %p:'
-fi
+[[ "$OSTYPE" == "darwin" ]] && export SUDO_PROMPT='[sudo] password for %p:'
 
 # define a cheat so I can get to my play linode nanos
 BOUNCER=173.230.149.72
