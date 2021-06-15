@@ -20,5 +20,7 @@ if [ "${KSH_VERSION-no}" != "no" ]; then
 
     # Created by `userpath` on 2021-02-11 02:58:07
     PATH="$PATH:/Users/mwilson/Library/Python/3.9/bin"
+
+    PATH="$PATH:/opt/mssql-tools/bin"
 fi
 export PATH
