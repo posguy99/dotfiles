@@ -1,0 +1,4 @@
+# display content type tree
+function ctt {
+    mdls $1 | awk '/kMDItemContentTypeTree/,/^\)/'    
+}
