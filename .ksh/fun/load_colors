@@ -1,0 +1,22 @@
+#!/usr/bin/env ksh
+
+# Generate two associative arrays containing the background
+# and foreground colors.
+
+# I'm sure the [reset] entries are wrong. ^_^
+
+typeset -A fg bg
+
+function load_colors
+{
+    typeset color
+    integer i=0
+
+    for color in black red green brown blue magenta cyan white; do
+        fg+=([$color]=$(tput setaf $i))
+        bg+=([$color]=$(tput setab $i))
+        (( i++ ))
+    done
+    fg+=([reset]=$(tput init))
+    bg+=([reset]=$(tput init))
+}
