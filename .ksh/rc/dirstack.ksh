@@ -20,6 +20,7 @@ export _dir_stack
 
 function pushd
 {
+   typeset -i _sd _ids _dsdel
    _sd=${#_dir_stack[*]}  # get total stack depth
    if [ "$1" ] ; then
       if [ "${1#\+[0-9]*}" ] ; then
@@ -82,6 +83,7 @@ function pushd
 
 function popd
 {
+   typeset -i _sd
    _sd=${#_dir_stack[*]}
    if [ $_sd -gt 0 ] ; then
       cd "${_dir_stack[_sd]}"
@@ -93,6 +95,7 @@ function popd
 
 function dirs
 {
+   typeset -i _sd _ind
    echo "0: $PWD"
    _sd=${#_dir_stack[*]}
    (( _ind = 1 ))
