@@ -34,7 +34,7 @@ BELL=$(printf '\007')
 [[ "$OSTYPE" == "darwin" ]] && export SUDO_PROMPT='[sudo] password for %p:'
 
 # disable MS telemetry for mssql-cli tool
-export MSSQL_CLI_TELEMETRY_OPTOUT=1
+[[ -n "$(whence mssql-cli)" ]] && export MSSQL_CLI_TELEMETRY_OPTOUT=1
 
 # define a cheat so I can get to my play linode nanos
 BOUNCER=173.230.149.72
