@@ -17,7 +17,7 @@ set     end="%{\033[0m%}" # This is needed at the end... :(
 # whichever one you like better, and change the colors as you want.  Just don't
 # mess with the ${end} guy in either line...  Comment out or delete the prompt you don't use.
 
-set prompt="${green}%n${blue}@%m ${white}%~ ${green}%# ${end}"
+set prompt="${green}%n${blue}@%m ${white}%~ ${green}%#${end} "
 # set prompt="[${green}%n${blue}@%m ${white}%~ ]${end} "
 
 # Clean up after ourselves...
