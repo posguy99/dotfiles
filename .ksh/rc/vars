@@ -5,7 +5,7 @@
 # BSD ls(1) cares about this, GNU ls(1) does not
 export CLICOLOR=1
 
-CDPATH=.:~:~/src:~/Google\ Drive/Documents/Continuing\ Education
+CDPATH=.:~:~/src:~/Dropbox:~/Google\ Drive/Documents/Continuing\ Education
 FIGNORE='@(*.o|~*)'
 
 # force OSTYPE to always be lower case
