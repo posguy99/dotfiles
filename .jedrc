@@ -1,4 +1,0 @@
-public define global_mode_hook (hook_name)
-{
-    set_line_number_mode (1);
-}
