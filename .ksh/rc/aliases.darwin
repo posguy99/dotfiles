@@ -2,6 +2,10 @@
 
 # aliases specific to the mac
 
+alias portupdate='sudo port selfupdate'
+alias porttest='sudo port -u upgrade -u outdated'
+alias portupgrade='sudo port upgrade -u outdated'
+
 alias ls='ls -GF'
 alias ll='ls -lG'
 alias la='ls -AG'
