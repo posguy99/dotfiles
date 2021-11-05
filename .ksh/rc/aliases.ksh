@@ -32,10 +32,6 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
-#if whence -pq most; then
-#    alias m='most'
-#fi
-
 # stupid dos tricks...
 alias md='mkdir'
 alias rd='rmdir'
