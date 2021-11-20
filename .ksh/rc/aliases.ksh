@@ -16,6 +16,8 @@ elif [[ -e $HOME/.nanorc-${OSTYPE} ]]; then
     alias nano="nano --rcfile ~/.nanorc-${OSTYPE}"
 fi
 
+[[ -e $FPATH/man ]] && autoload man
+
 [[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
 [[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw'

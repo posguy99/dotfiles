@@ -1,0 +1,41 @@
+#!/usr/bin/env ksh
+
+namespace man
+{
+	isbuiltin()
+	{
+		typeset LF=$'\n'
+		(($# == 1)) &&
+		[[ ! $1 =~ ^(-.*|:|true|false|echo)$ ]] &&
+		[[ $LF$(builtin)$LF == *"$LF$(whence "$1")$LF"* ]]
+	}
+
+	showbuiltin()
+	(
+		export ERROR_OPTIONS=emphasis
+		command "$1" --man 2>&1
+	)
+
+	pager()
+	(
+		unset IFS
+		set -o noglob
+		${PAGER:-less -R}
+	)
+
+	main()
+	{
+		# special-case "man 1 foo" == "man foo"
+		(($# == 2)) && [[ $1 == "1" ]] && shift
+
+		if	isbuiltin "$@"
+		then	showbuiltin "$1" | pager
+		else	command man "$@"
+		fi
+	}
+}
+
+function man
+{
+	.man.main "$@"
+}
