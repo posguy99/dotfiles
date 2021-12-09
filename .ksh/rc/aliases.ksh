@@ -59,7 +59,7 @@ alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # human readable path
-alias path='printf "${PATH//:/\\n}\n"'
+alias path='printf -- "${PATH//:/\\n}\n"'
 
 # # Add the remote, call it "upstream":
 #
