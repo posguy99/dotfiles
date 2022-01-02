@@ -20,7 +20,7 @@ fi
 
 [[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
-[[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw'
+[[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
 [[ -n "$(whence python3)" ]] &&  alias venv='python3 -m venv'
 [[ -n "$(whence most)" ]] && alias m=most
 
