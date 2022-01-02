@@ -9,7 +9,8 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
  '(display-line-numbers t)
- '(menu-bar-mode nil))
+ '(menu-bar-mode nil)
+ '(column-number-mode t))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
