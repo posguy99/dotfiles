@@ -41,3 +41,4 @@
 (add-hook 'after-make-frame-functions 'contextual-menubar)
 
 (add-hook 'after-init-hook 'contextual-menubar)
+
