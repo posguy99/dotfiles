@@ -19,6 +19,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; from https://stackoverflow.com/questions/24956521/how-can-i-hide-the-menu-bar-from-a-specific-frame-in-emacs
 (defun contextual-menubar (&optional frame)
   "Display the menubar in FRAME (default: selected frame) if on a
     graphical display, but hide it if in terminal."
