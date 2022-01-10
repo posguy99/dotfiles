@@ -19,6 +19,16 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; from https://www.emacswiki.org/emacs/BackupDirectory
+(setq
+   backup-by-copying t      ; don't clobber symlinks
+   backup-directory-alist
+    '(("." . "~/.emacsbackup/"))    ; don't litter my fs tree
+   delete-old-versions t
+   kept-new-versions 6
+   kept-old-versions 2
+   version-control t)       ; use versioned backups
+
 ;; from https://stackoverflow.com/questions/24956521/how-can-i-hide-the-menu-bar-from-a-specific-frame-in-emacs
 (defun contextual-menubar (&optional frame)
   "Display the menubar in FRAME (default: selected frame) if on a
