@@ -9,6 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
  '(display-line-numbers t)
+ '(display-line-numbers-width-start t)
  '(inhibit-splash-screen t)
  '(column-number-mode t))
 
@@ -42,3 +43,13 @@
 
 (add-hook 'after-init-hook 'contextual-menubar)
 
+(when (eq system-type 'darwin)
+
+  ;; default Latin font (e.g. Consolas)
+  ;; (set-face-attribute 'default nil :family "Consolas")
+
+  ;; default font size (point * 10)
+  ;;
+  (set-face-attribute 'default nil :height 165)
+  (when window-system (set-frame-size (selected-frame) 120 36))
+  )
