@@ -9,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
  '(display-line-numbers t)
- '(menu-bar-mode nil)
+;; '(menu-bar-mode nil)
  '(column-number-mode t))
 
 (custom-set-faces
@@ -18,3 +18,15 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+(defun contextual-menubar (&optional frame)
+  "Display the menubar in FRAME (default: selected frame) if on a
+    graphical display, but hide it if in terminal."
+  (interactive)
+  (set-frame-parameter frame 'menu-bar-lines 
+                             (if (display-graphic-p frame)
+                                  1 0)))
+
+(add-hook 'after-make-frame-functions 'contextual-menubar)
+
+(add-hook 'after-init-hook 'contextual-menubar)
