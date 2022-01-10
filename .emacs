@@ -1,4 +1,4 @@
-(menu-bar-mode 0)
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'twilight t)
 (load-theme 'panda t)
@@ -9,7 +9,7 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
  '(display-line-numbers t)
-;; '(menu-bar-mode nil)
+ '(inhibit-splash-screen t)
  '(column-number-mode t))
 
 (custom-set-faces
