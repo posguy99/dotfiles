@@ -20,6 +20,7 @@
  ;; If there is more than one, they won't work right.
  )
 
+;; set up backups to go into a particular folder vs srinkled everywhere
 ;; from https://www.emacswiki.org/emacs/BackupDirectory
 (setq
    backup-by-copying t      ; don't clobber symlinks
@@ -30,6 +31,7 @@
    kept-old-versions 2
    version-control t)       ; use versioned backups
 
+;; hide menu bar in a TUI window, show it in a GUI window
 ;; from https://stackoverflow.com/questions/24956521/how-can-i-hide-the-menu-bar-from-a-specific-frame-in-emacs
 (defun contextual-menubar (&optional frame)
   "Display the menubar in FRAME (default: selected frame) if on a
@@ -40,8 +42,17 @@
                                   1 0)))
 
 (add-hook 'after-make-frame-functions 'contextual-menubar)
-
 (add-hook 'after-init-hook 'contextual-menubar)
+
+;; support for recent files
+
+(require 'recentf)
+(recentf-mode 1)
+(setq recentf-max-menu-items 25)
+(setq recentf-max-saved-items 25)
+(global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; force a GUI window to be a certain size
 
 (when (eq system-type 'darwin)
 
