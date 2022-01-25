@@ -11,7 +11,8 @@
  '(display-line-numbers t)
  '(display-line-numbers-width-start t)
  '(inhibit-splash-screen t)
- '(column-number-mode t))
+ '(column-number-mode t)
+ '(require-final-newline 't))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -51,6 +52,19 @@
 (setq recentf-max-menu-items 25)
 (setq recentf-max-saved-items 25)
 (global-set-key "\C-x\ \C-r" 'recentf-open-files)
+
+;; more interesting things
+(global-set-key "\C-c\C-a" 'mark-whole-buffer)
+(global-set-key "\C-cg" 'goto-line)
+(global-set-key "\C-cG" 'goto-char)
+(global-set-key "\C-cw" 'delete-region) ; ala C-w and M-C-w
+(global-set-key "\C-cc" 'comment-region)
+(global-set-key "\C-cu" 'uncomment-region)
+
+(setq-default indent-tabs-mode nil)
+
+;; calendar - weeks start on mondays
+(setq calendar-week-start-day 1)
 
 ;; force a GUI window to be a certain size
 
