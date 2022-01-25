@@ -21,7 +21,7 @@
  ;; If there is more than one, they won't work right.
  )
 
-;; set up backups to go into a particular folder vs srinkled everywhere
+;; set up backups to go into a particular folder vs sprinkled everywhere
 ;; from https://www.emacswiki.org/emacs/BackupDirectory
 (setq
    backup-by-copying t      ; don't clobber symlinks
