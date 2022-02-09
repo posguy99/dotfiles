@@ -9,7 +9,9 @@
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
  '(display-line-numbers t)
+ ;; is this correct or should width-start actually be a value here?
  '(display-line-numbers-width-start t)
+ '(display-line-numbers-width 4)
  '(inhibit-splash-screen t)
  '(column-number-mode t)
  '(require-final-newline 't))
@@ -75,6 +77,6 @@
 
   ;; default font size (point * 10)
   ;;
-  (set-face-attribute 'default nil :height 165)
+  (set-face-attribute 'default nil :height 140)
   (when window-system (set-frame-size (selected-frame) 120 36))
   )
