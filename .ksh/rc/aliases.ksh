@@ -53,7 +53,7 @@ alias ln='ln -i'
 alias psgrep="ps aux | grep -v grep | grep $1"
 
 # from jaybe on #macosx
-alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
+[[ -z "$(whence tree)" ]] && alias tree=$'find . -print | sed -e \'s;[^/]*/;|____;g;s;____|; |;g\''
 
 # manage dotfiles
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'

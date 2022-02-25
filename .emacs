@@ -11,8 +11,9 @@
  '(display-line-numbers t)
  ;; is this correct or should width-start actually be a value here?
  '(display-line-numbers-width-start t)
- '(display-line-numbers-width 4)
+ '(display-line-numbers-width 2)
  '(inhibit-splash-screen t)
+ '(hl-line-mode t)
  '(column-number-mode t)
  '(require-final-newline 't))
 
