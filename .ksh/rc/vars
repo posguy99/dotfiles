@@ -36,6 +36,9 @@ BELL=$(printf '\007')
 # disable MS telemetry for mssql-cli tool
 [[ -n "$(whence mssql-cli)" ]] && export MSSQL_CLI_TELEMETRY_OPTOUT=1
 
+# override GIT_CEILING_DIRECTORIES as a workaround for CVE-2022-24765
+export GIT_CEILING_DIRECTORIES=/Users
+
 # define a cheat so I can get to my play linode nanos
 BOUNCER=173.230.149.72
 DEBIAN=50.116.2.62
