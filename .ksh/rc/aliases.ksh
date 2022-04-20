@@ -20,7 +20,15 @@ fi
 
 [[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
-[[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
+if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
+    alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+elif [[ -n "$(whence emacs)" ]]; then
+    alias emacs='emacs -nw'
+else
+    alias emacs='mg'
+fi
+
+# [[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
 [[ -n "$(whence python3)" ]] &&  alias venv='python3 -m venv'
 [[ -n "$(whence most)" ]] && alias m=most
 
