@@ -8,21 +8,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
- '(display-line-numbers t)
- ;; is this correct or should width-start actually be a value here?
- '(display-line-numbers-width-start t)
- '(display-line-numbers-width 2)
  '(inhibit-splash-screen t)
  '(hl-line-mode t)
  '(column-number-mode t)
  '(require-final-newline 't))
 
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+;; set up line numbering
+;; from https://www.reddit.com/r/emacs/comments/ucw1wz/comment/i6i5x3v/?utm_source=share&utm_medium=web2x&context=3
+(setq-default display-line-numbers-width-start t
+              display-line-numbers-width 1
+              display-line-numbers-grow-only t)
+(global-display-line-numbers-mode +1)
 
 ;; set up backups to go into a particular folder vs sprinkled everywhere
 ;; from https://www.emacswiki.org/emacs/BackupDirectory
