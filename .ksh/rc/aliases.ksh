@@ -22,6 +22,7 @@ fi
 
 if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
+    alias gmacs='/Applications/Emacs.app/Contents/MacOS/Emacs '
 elif [[ -n "$(whence emacs)" ]]; then
     alias emacs='emacs -nw'
 else
