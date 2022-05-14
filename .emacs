@@ -17,6 +17,8 @@
 (unless (package-installed-p 'markdown-mode)
   (package-install 'markdown-mode))
 
+(setq markdown-command "markdown_py-3.9")
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'twilight t)
 (load-theme 'panda t)
