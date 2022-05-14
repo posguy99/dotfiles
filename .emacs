@@ -1,16 +1,36 @@
 
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+; Add the NonGNU ELPA package archive
+; https://emacs.amodernist.com/
+(add-to-list 'package-archives  '("nongnu" . "https://elpa.nongnu.org/nongnu/"))
+
+; JSON Support
+; https://emacs.amodernist.com/
+(unless (package-installed-p 'json-mode)
+  (package-install 'json-mode))
+
+; Markdown support
+; https://emacs.amodernist.com/
+(unless (package-installed-p 'markdown-mode)
+  (package-install 'markdown-mode))
+
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'twilight t)
 (load-theme 'panda t)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(auto-save-no-message t)
- '(inhibit-splash-screen t)
- '(hl-line-mode t)
  '(column-number-mode t)
+ '(hl-line-mode t)
+ '(inhibit-startup-screen t)
+ '(package-selected-packages '(markdown-mode json-mode))
  '(require-final-newline 't))
 
 ;; set up line numbering
@@ -89,3 +109,9 @@
   (set-face-attribute 'default nil :height 140)
   (when window-system (set-frame-size (selected-frame) 120 36))
   )
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
