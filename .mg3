@@ -16,6 +16,9 @@
 (global-set-key "\esF"   'isearch-forward)
 (global-set-key "\esB"   'isearch-backward)
 ;
+; Fri, 20 May 2022
+(set-variable "tabs-with-spaces" 1)
+;
 ; Sun, 26 Apr 2020 07:04:39 +0000
 ;
 (global-set-key "\e[5~"  'scroll-down)
