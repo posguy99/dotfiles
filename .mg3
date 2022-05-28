@@ -15,7 +15,10 @@
 (global-set-key "\esb"   'search-backward)
 (global-set-key "\esF"   'isearch-forward)
 (global-set-key "\esB"   'isearch-backward)
-;
+
+; Sat 28 May 2022
+(set-variable 'trim-whitespace" 1)
+
 ; Fri, 20 May 2022
 (set-variable "tabs-with-spaces" 1)
 ;
