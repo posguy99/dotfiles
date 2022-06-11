@@ -16,6 +16,9 @@
 (global-set-key "\esF"   'isearch-forward)
 (global-set-key "\esB"   'isearch-backward)
 
+; Fri 10 Jun 2022
+auto-execute "*" "auto-indent-mode"
+
 ; Sat 28 May 2022
 (set-variable "trim-whitespace" 1)
 
