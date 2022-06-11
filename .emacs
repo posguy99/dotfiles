@@ -21,7 +21,8 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'twilight t)
-(load-theme 'panda t)
+;;(load-theme 'panda t)
+(load-theme 'dracula t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -59,7 +60,7 @@
   "Display the menubar in FRAME (default: selected frame) if on a
     graphical display, but hide it if in terminal."
   (interactive)
-  (set-frame-parameter frame 'menu-bar-lines 
+  (set-frame-parameter frame 'menu-bar-lines
                              (if (display-graphic-p frame)
                                   1 0)))
 
