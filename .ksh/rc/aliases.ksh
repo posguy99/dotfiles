@@ -52,6 +52,7 @@ alias fgrep='fgrep --color=auto'
 alias md='mkdir'
 alias rd='rmdir'
 alias cd..='cd ..'
+alias cd...='cd ../..'
 
 alias edit=\${EDITOR}
 
