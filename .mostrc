@@ -1,8 +1,8 @@
 % Color settings
 
 % color normal lightgray black
-color status white gray
-% color status white blue
+% color status white gray
+color status white blue
 % color underline brightgreen black
 % color overstrike brightred black
 

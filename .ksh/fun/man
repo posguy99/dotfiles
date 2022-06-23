@@ -1,4 +1,5 @@
 #!/usr/bin/env ksh
+#https://github.com/ksh93/ksh/issues/325#issuecomment-974424976
 
 namespace man
 {

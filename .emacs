@@ -21,8 +21,8 @@
 
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 ;;(load-theme 'twilight t)
-;;(load-theme 'panda t)
-(load-theme 'dracula t)
+(load-theme 'panda t)
+;;(load-theme 'dracula t)
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
