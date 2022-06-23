@@ -20,11 +20,6 @@ fi
 
 [[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
-# this is meant to catch https://github.com/paaguti/mg3a being installed
-# and use it over macOS's ibara mg (mg3a is utf8, mg2 is not)
-
-[[ -e $HOME/bin/mg3a ]] && alias mg='$HOME/bin/mg3a'
-
 if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
     alias gmacs='/Applications/Emacs.app/Contents/MacOS/Emacs '
