@@ -33,6 +33,10 @@ BELL=$(printf '\007')
 
 [[ "$OSTYPE" == "darwin" ]] && export SUDO_PROMPT='[sudo] password for %p:'
 
+# for coreutils 8.25 and later ls stupidity
+# https://unix.stackexchange.com/questions/258679/why-is-ls-suddenly-wrapping-items-with-spaces-in-single-quotes
+export QUOTING_STYLE=literal
+
 # disable MS telemetry for mssql-cli tool
 [[ -n "$(whence mssql-cli)" ]] && export MSSQL_CLI_TELEMETRY_OPTOUT=1
 
