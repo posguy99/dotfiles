@@ -61,9 +61,12 @@ set -o nolog                        # don't save function defs in history (have 
 set -o notify                       # immediate notification from background jobs
 set -o trackall                     # does this really increase performance on modern systems?
 
-# fortune can be fun, but eventually the extra noise will make me remove it
-[[ -n "$(whence fortune)" ]] && printf "\n%s\n\n" "$(fortune -s)"
+if [ ${SHLVL} -lt 2 ] ; then
+    # fortune can be fun, but eventually the extra noise will make me remove it
+    # but don't do it on subshells, what's the point?
+    [[ -n "$(whence fortune)" ]] && printf "\n%s\n\n" "$(fortune -s)"
 
-ver                                 # display version string
+    ver                             # display version string
+fi
 
 # done
