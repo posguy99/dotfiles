@@ -1,6 +1,8 @@
 /opt/mssql-tools/bin
 /Users/mwilson/Library/Python/3.9/bin
 /Users/mwilson/.local/bin
+/home/mwilson/.local/bin
 /opt/local/sbin
 /opt/local/bin
 /Users/mwilson/bin
+/home/mwilson/bin
