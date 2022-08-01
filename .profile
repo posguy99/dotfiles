@@ -10,18 +10,30 @@
 # mksh defines KSH_VERSION as well and always reads ~/.profile if it's
 # a login shell so this isn't perfect.
 
+# this does not deal with spaces in paths right now.
+
 if [ "${KSH_VERSION-no}" != "no" ]; then
 
-    PATH=$PATH:$HOME/bin
-    PATH=/opt/local/bin:/opt/local/sbin:$PATH
+    typeset i new_path path_file=$HOME/.paths
+    typeset -a path_array
 
-    # Created by `userpath` on 2021-02-06 17:26:28
-    PATH="$PATH:/Users/mwilson/.local/bin"
+    if [ -e ${path_file} ]; then
 
-    # Created by `userpath` on 2021-02-11 02:58:07
-    PATH="$PATH:/Users/mwilson/Library/Python/3.9/bin"
+        #read the file into the array
+        path_array=($(cat $path_file))
 
-    [[ -d /opt/mssql-tools ]] && PATH="$PATH:/opt/mssql-tools/bin"
+        # debug
+        # printf "%s\n" ${path_array[*]}
+
+        for i in ${path_array[*]}
+        do
+            [[ -d $i ]] && new_path=${i}:${new_path}
+        done
+
+        PATH=${new_path}${PATH}
+    fi
+
+    unset i new_path path_file path_array
 fi
 
 export PATH
