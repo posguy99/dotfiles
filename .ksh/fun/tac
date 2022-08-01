@@ -1,5 +1,5 @@
 
 # poor-man's tac(1) on macOS
 function tac {
-  [[ -n "$(whence -qf tac)" ]] && command echo tac "$@" || tail -r -- "$@" ;
+  [[ "$(whence -f tac)" ]] && command echo tac "$@" || tail -r -- "$@" ;
 }
