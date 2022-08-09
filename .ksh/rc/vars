@@ -48,3 +48,6 @@ export GIT_CEILING_DIRECTORIES=/Users
 # define a cheat so I can get to my play linode nanos
 BOUNCER=173.230.149.72
 DEBIAN=50.116.2.62
+
+# and to the imac (why mDNS doesn't work reliably, I have no idea)
+IMAC=192.168.0.60
