@@ -14,7 +14,7 @@
 
 if [ "${KSH_VERSION-no}" != "no" ]; then
 
-    typeset i new_path path_file=$HOME/.paths
+    typeset i new_path path_file=$HOME/.path
     typeset -a path_array
 
     if [ -e ${path_file} ]; then
