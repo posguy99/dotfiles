@@ -4,7 +4,7 @@ global_set_key("C-x s", "set-style");
 set_style("mode-line", "background-color", "grey");
 set_style("mode-line", "color", "black");
 set_style("minibuf","background-color","black");
-set_style("minibuf","color","black");
+set_style("minibuf","color","grey");
 set_style("status","background-color","black");
 set_style("status","color","black");
 set_style("default","background-color","262626");
