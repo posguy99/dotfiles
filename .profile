@@ -20,7 +20,7 @@ if [ "${KSH_VERSION-no}" != "no" ]; then
     if [ -e ${path_file} ]; then
 
         #read the file into the array
-        path_array=($(cat $path_file))
+        path_array=($(< $path_file))
 
         # debug
         # printf "%s\n" ${path_array[*]}
