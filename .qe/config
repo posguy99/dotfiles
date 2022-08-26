@@ -46,3 +46,6 @@ set_style("function", "font-weight", "bold");
 
 tab-width = 4;
 indent-tabs-mode = 0;
+
+// hide dot files by default in dired
+dired_show_dot_files = 0;
