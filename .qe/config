@@ -44,8 +44,23 @@ set_style("function", "font-weight", "bold");
 // a post on qemacs-devel says these are defaults, I don't care, make sure
 // they are set
 
-tab-width = 4;
-indent-tabs-mode = 0;
+set_tab_width(4);
+set_indent_tabs_mode(0);
+set_indent_width(4);
+
+// other global settings
+
+set_fill_column(78);
+
+// https://github.com/qemacs/qemacs/commit/e1b513d5a83ab858240c42fcbe5f86ee72a5e705#commitcomment-82383483
+// there is no function set_is_player()
+
+is-player = 0;
 
 // hide dot files by default in dired
-dired_show_dot_files = 0;
+//see https://lists.nongnu.org/archive/html/qemacs-devel/2022-08/msg00021.html
+// for discussion of this "if" syntax
+
+if (1) {
+    dired_show_dot_files = 0;
+}
