@@ -52,6 +52,9 @@ set_indent_width(4);
 
 set_fill_column(78);
 
+// not making backups is probably not the best idea, but...
+backup_inhibited = 1;
+
 // https://github.com/qemacs/qemacs/commit/e1b513d5a83ab858240c42fcbe5f86ee72a5e705#commitcomment-82383483
 // there is no function set_is_player()
 
