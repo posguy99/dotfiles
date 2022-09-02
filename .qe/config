@@ -16,6 +16,8 @@ set_style("minibuf","color","grey");
 set_style("status","background-color","black");
 set_style("status","color","black");
 set_style("default","background-color","262626");
+set_style("gutter","background-color","262626");
+set_style("gutter","color","grey");
 set_style("default","color","grey");
 set_style("status","color","white");
 set_style("string","color","73f7d7");
@@ -48,9 +50,12 @@ set_tab_width(4);
 set_indent_tabs_mode(0);
 set_indent_width(4);
 
+toggle_line_numbers();
+
 // other global settings
 
 set_fill_column(78);
+default_fill_column = 78;
 
 // not making backups is probably not the best idea, but...
 backup_inhibited = 1;
