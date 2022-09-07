@@ -50,7 +50,8 @@ set_tab_width(4);
 set_indent_tabs_mode(0);
 set_indent_width(4);
 
-toggle_line_numbers();
+// turn on line numbers
+global_linum_mode(1);
 
 // other global settings
 
