@@ -20,16 +20,23 @@ fi
 
 [[ -e $HOME/.bcrc ]] && alias bc='bc -q $HOME/.bcrc' || alias bc='bc -q'
 
+# [[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
 if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
     alias gmacs='/Applications/Emacs.app/Contents/MacOS/Emacs '
 elif [[ -n "$(whence emacs)" ]]; then
     alias emacs='emacs -nw'
+elif [[ -n "$(whence qemacs)" ]]; then
+    alias emacs='qemacs '
 else
+    # macOS ships mg, so it is most likely always there
     alias emacs='mg'
 fi
 
-# [[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
+# what was that DOS editor from back in the day
+# that you invoked with just 'q'...
+[[ -n "$(whence qemacs)" ]] && alias q='qemacs '
+
 [[ -n "$(whence python3)" ]] &&  alias venv='python3 -m venv'
 [[ -n "$(whence most)" ]] && alias m=most
 
@@ -70,6 +77,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 # human readable path
 alias path='printf -- "${PATH//:/\\n}\n"'
+
+# external IP address
+alias wanip='printf -- "External IP: $(curl -s --get http://tnx.nl/ip)\n"'
 
 # # Add the remote, call it "upstream":
 #
