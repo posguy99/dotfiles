@@ -1,17 +1,5 @@
 #!/usr/bin/env ksh
 
-# see bolsky p210 for this incredibly whack bit of text...
-
-# During alias substitution, if the last character of value is
-# a Space or a Tab, ksh also checks the word following the alias
-# to see if it should do alias substitution.
-# Use a trailing Space or a Tab when the next argument
-# is supposed to be a command name.
-
-# HUH!?!?!
-
-# does any other shell do this?
-
 # aliases per OS in use
 
 _aliases="$FOLDER/rc/aliases.$OSTYPE"
@@ -20,6 +8,8 @@ _aliases="$FOLDER/rc/aliases.$OSTYPE"
 unset -v _aliases
 
 # aliases for both OS
+
+alias local='typeset'
 
 # deal with stupid nano differences in a terrible way
 if [[ -e $HOME/.nanorc-${HOSTNAME} ]]; then
