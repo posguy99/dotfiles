@@ -1,5 +1,17 @@
 #!/usr/bin/env ksh
 
+# see bolsky p210 for this incredibly whack bit of text...
+
+# During alias substitution, if the last character of value is
+# a Space or a Tab, ksh also checks the word following the alias
+# to see if it should do alias substitution.
+# Use a trailing Space or a Tab when the next argument
+# is supposed to be a command name.
+
+# HUH!?!?!
+
+# does any other shell do this?
+
 # aliases per OS in use
 
 _aliases="$FOLDER/rc/aliases.$OSTYPE"
@@ -23,7 +35,7 @@ fi
 # [[ -n "$(whence emacs)" ]] && alias emacs='emacs -nw' || alias emacs='mg'
 if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
     alias emacs='/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
-    alias gmacs='/Applications/Emacs.app/Contents/MacOS/Emacs '
+    alias gmacs='/Applications/Emacs.app/Contents/MacOS/Emacs'
 elif [[ -n "$(whence emacs)" ]]; then
     alias emacs='emacs -nw'
 elif [[ -n "$(whence qemacs)" ]]; then
