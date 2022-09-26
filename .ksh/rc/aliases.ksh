@@ -27,7 +27,7 @@ if [[ -e /Applications/Emacs.app/Contents/MacOS/Emacs ]]; then
 elif [[ -n "$(whence emacs)" ]]; then
     alias emacs='emacs -nw'
 elif [[ -n "$(whence qemacs)" ]]; then
-    alias emacs='qemacs '
+    alias emacs='qemacs'
 else
     # macOS ships mg, so it is most likely always there
     alias emacs='mg'
@@ -35,7 +35,7 @@ fi
 
 # what was that DOS editor from back in the day
 # that you invoked with just 'q'...
-[[ -n "$(whence qemacs)" ]] && alias q='qemacs '
+[[ -n "$(whence qemacs)" ]] && alias q='qemacs'
 
 [[ -n "$(whence python3)" ]] &&  alias venv='python3 -m venv'
 [[ -n "$(whence most)" ]] && alias m=most

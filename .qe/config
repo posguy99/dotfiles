@@ -23,14 +23,17 @@ set_style("status","color","white");
 set_style("string","color","73f7d7");
 set_style("string-q", "color", "73f7d7");
 set_style("number", "color", "white");
-set_style("keyword","color","ab8bce");
+set_style("keyword","color","76b5ff");
 set_style("tag","color","red");
 set_style("function","color","8faff2");
-set_style("comment", "color", "625e7f");
-set_style("variable", "color", "ed92ce");
+set_style("comment", "color", "676b79");
+set_style("variable", "color", "ed8fcc");
 set_style("type", "color", "a78abf");
 set_style("preprocess", "color", "f5b26d");
 set_style("error", "color", "red");
+
+set_style("selection", "color", "323638");
+set_style("highlight", "color", "404954");
 
 // set text styling
 
