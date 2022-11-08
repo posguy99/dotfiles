@@ -81,7 +81,7 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 alias path='printf -- "${PATH//:/\\n}\n"'
 
 # external IP address
-alias wanip='printf -- "External IP: $(curl -s --get http://tnx.nl/ip)\n"'
+alias wanip='printf -- "External IP4: $(curl -4 -s --get http://tnx.nl/ip)\n" && printf -- "External IP6: $(curl -6 -s --get http://tnx.nl/ip)\n"'
 
 # # Add the remote, call it "upstream":
 #
