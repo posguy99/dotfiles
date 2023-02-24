@@ -57,9 +57,12 @@ set -o emacs                        # edit mode
 set +o histexpand                   # csh-style history off (I like it, but got bit twice now, so it goes)
 set -o multiline                    # turn on multiline mode ref: https://github.com/ksh93/ksh/issues/71
 set -o ignoreeof                    # don't exit on ctrl-d
-set -o nolog                        # don't save function defs in history (have to think about this)
 set -o notify                       # immediate notification from background jobs
-set -o trackall                     # does this really increase performance on modern systems?
+# nolog option removed @0f7f46d7
+# set -o nolog                        # don't save function defs in history (have to think about this)
+
+# trackall option removed @0f7f46d7
+# set -o trackall                     # does this really increase performance on modern systems?
 
 if [ ${SHLVL} -lt 2 ] ; then
     # fortune can be fun, but eventually the extra noise will make me remove it
