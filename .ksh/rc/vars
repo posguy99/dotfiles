@@ -37,7 +37,7 @@ BELL=$(printf '\007')
 # https://unix.stackexchange.com/questions/258679/why-is-ls-suddenly-wrapping-items-with-spaces-in-single-quotes
 # https://www.reddit.com/r/linux/comments/457ptk/ls_default_to_quotingshellescape_for_output_to/
 # https://www.gnu.org/software/coreutils/quotes.html
-export QUOTING_STYLE=literal
+[[ "$OSTYPE" == "linux" ]] && export QUOTING_STYLE=literal
 
 # disable MS telemetry for mssql-cli tool
 [[ -n "$(whence mssql-cli)" ]] && export MSSQL_CLI_TELEMETRY_OPTOUT=1
