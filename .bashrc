@@ -15,12 +15,12 @@
 export BASH_SILENCE_DEPRECATION_WARNING=1
 export BC_ENV_ARGS=~/.bcrc
 #export EDITOR="/usr/local/bin/mate -w"
-export EDITOR="/usr/local/bin/bbedit -w"
+export EDITOR="qe"
 export LESS='-giMR -P%t?f%f :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 export MOZ_PRINTER_NAME=laser
 export PAGER="less"
 export PRINTER=laser
-export VISUAL=vim
+export VISUAL=qe
 export LESSOPEN="|/Users/mwilson/bin/lesspipe.sh %s"
 export TODOTXT_DEFAULT_ACTION=ls
 
