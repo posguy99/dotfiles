@@ -69,12 +69,30 @@ function PS1.set
 }
 
 # for now all it does is get the current branch, if there is one.
+#function _git_status.get
+#{
+#    typeset branch commit return
+#    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
+#    [[ -n "$branch" ]] && commit=$(git rev-parse --short HEAD 2> /dev/null) && return="${branch%]}@${commit}]"
+#    .sh.value=${return}
+#}
+
+# borrowed from mcdutchie https://github.com/ksh93/ksh/issues/616#issue-1646792565
+# avoids sed invocation vs my original one and no local variables
 function _git_status.get
 {
-    typeset branch commit return
-    branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/[\1]/')
-    [[ -n "$branch" ]] && commit=$(git rev-parse --short HEAD 2> /dev/null) && return="${branch%]}@${commit}]"
-    .sh.value=${return}
+    command -v git >/dev/null || return
+    .sh.value=${ git branch 2>/dev/null; }
+    case $'\n'${.sh.value} in
+    *$'\n* '*)
+        .sh.value=$'\n'${.sh.value}
+        .sh.value=${.sh.value#*$'\n* '}
+        .sh.value=${.sh.value%%$'\n'*}
+        ;;
+    *)  .sh.value=''
+        ;;
+    esac
+    [[ -n ${.sh.value} ]] && .sh.value="[${.sh.value}@$(git rev-parse --short HEAD 2> /dev/null)]"
 }
 
 # Discipline function for relative present working directory
