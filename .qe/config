@@ -7,72 +7,168 @@
 
 global_set_key("C-x s", "set-style");
 
-// set colors
 
+//
+// default bg of the frame, default text color
+//
+set_style("default","background-color","262626");
+set_style("default","color","grey");
+
+
+//
+// modeline
+//
 set_style("mode-line", "background-color", "grey");
 set_style("mode-line", "color", "black");
+
+
+//
+// minibuf
+//
 set_style("minibuf","background-color","black");
 set_style("minibuf","color","grey");
+
+
+//
+// bottom line of the window
+//
 set_style("status","background-color","black");
-set_style("status","color","black");
-set_style("default","background-color","262626");
+set_style("status","color","white");
+
+
+//
+// the left gutter and the text in it
+//
 set_style("gutter","background-color","262626");
 set_style("gutter","color","grey");
-set_style("default","color","grey");
-set_style("status","color","white");
-set_style("string","color","73f7d7");
-set_style("string-q", "color", "73f7d7");
-set_style("number", "color", "white");
-set_style("keyword","color","76b5ff");
-set_style("tag","color","red");
-set_style("function","color","8faff2");
-set_style("comment", "color", "676b79");
-set_style("variable", "color", "ed8fcc");
-set_style("type", "color", "a78abf");
-set_style("preprocess", "color", "f5b26d");
-set_style("error", "color", "red");
 
+
+//
+// selected text
+//
 set_style("selection", "color", "323638");
 set_style("highlight", "color", "404954");
 
-// set text styling
 
-set_style("comment", "font-family", "sans");
-set_style("comment", "font-size", "12");
-set_style("comment", "font-style", "italic");
-set_style("keyword", "font-family", "serif");
-set_style("keyword", "font-size", "18");
+//
+// preprocessor directives
+//
+set_style("preprocess", "color", "f5b26d");
+
+
+//
+// errors
+//
+set_style("error", "color", "red");
+set_style("error", "font-weight", "bold");
+
+
+//
+// numbers
+//
+// set_style("keyword","color","76b5ff");
+set_style("number", "color", "white");
+
+
+//
+// tag - think it means html tags
+//
+set_style("tag","color","red");
+
+
+//
+// functions
+//
+set_style("function","color","8faff2");
 set_style("function", "font-family", "serif");
 set_style("function", "font-size", "18");
 set_style("function", "font-weight", "bold");
 
+
+//
+// language keywords
+//
+set_style("keyword","color","fd9f4d");
+set_style("keyword", "font-family", "serif");
+set_style("keyword", "font-size", "18");
+set_style("keyword", "font-weight", "bold");
+
+
+//
+// comments
+//
+// set_style("comment", "color", "676b79");
+set_style("comment", "color", "4c4b74");
+set_style("comment", "font-family", "sans");
+set_style("comment", "font-size", "12");
+set_style("comment", "font-style", "italic");
+
+
+//
+// variables
+//
+set_style("variable", "color", "fc6cce");
+set_style("variable", "font-weight", "bold");
+
+
+//
+// types
+//
+set_style("type", "color", "fc6cce");
+set_style("type", "font-weight", "bold");
+
+
+//
+// strings and quoted strings
+//
+set_style("string", "color", "55ffce");
+set_style("string-q", "color", "55ffce");
+
+
+//
 // a post on qemacs-devel says these are defaults, I don't care, make sure
 // they are set
-
+//
 set_tab_width(4);
 set_indent_tabs_mode(0);
 set_indent_width(4);
 
+//
 // turn on line numbers
+// reminder that C-c l is bound to the number mode toggle
+//
 global_linum_mode(1);
 
-// other global settings
 
+//
+// other global settings
+//
 set_fill_column(78);
 default_fill_column = 78;
 
-// not making backups is probably not the best idea, but...
+
+//
+// not making backups is probably not the best idea, but you just end up with
+// tilde files sprinkled all over the filesystem
+//
 backup_inhibited = 1;
 
+
+//
 // https://github.com/qemacs/qemacs/commit/e1b513d5a83ab858240c42fcbe5f86ee72a5e705#commitcomment-82383483
 // there is no function set_is_player()
-
+//
 is-player = 0;
 
+
+//
 // hide dot files by default in dired
 //see https://lists.nongnu.org/archive/html/qemacs-devel/2022-08/msg00021.html
 // for discussion of this "if" syntax
-
+//
 if (1) {
     dired_show_dot_files = 0;
 }
+
+
+// eof
