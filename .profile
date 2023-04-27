@@ -30,7 +30,7 @@ if [ "${KSH_VERSION-no}" != "no" ]; then
             [[ -d $i ]] && new_path=${i}:${new_path}
         done
 
-        PATH=${PATH}${new_path}
+        PATH=${new_path}${PATH}
     fi
 
     unset i new_path path_file path_array
