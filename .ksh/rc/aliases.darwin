@@ -6,6 +6,10 @@ alias portupdate='sudo port selfupdate'
 alias porttest='sudo port -y upgrade -u outdated'
 alias portupgrade='sudo port upgrade -u outdated'
 
+# lazy alias for downloads from yt
+
+alias ytd='yt-dlp --recode-video=mp4 --embed-subs'
+
 alias ls='ls -GF'
 alias ll='ls -lG'
 alias la='ls -AG'
