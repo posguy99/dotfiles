@@ -7,8 +7,8 @@ alias porttest='sudo port -y upgrade -u outdated'
 alias portupgrade='sudo port upgrade -u outdated'
 
 # lazy alias for downloads from yt
-
-alias ytd='yt-dlp --recode-video=mp4 --embed-subs'
+# only define the alias if yt-dlp is installed
+[[ -n "$(whence yt-dlp)" ]] && alias ytd='yt-dlp --recode-video=mp4 --embed-subs'
 
 alias ls='ls -GF'
 alias ll='ls -lG'
