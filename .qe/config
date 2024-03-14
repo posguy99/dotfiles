@@ -7,6 +7,10 @@
 
 global_set_key("C-x s", "set-style");
 
+//
+// from https://github.com/qemacs/qemacs/issues/15
+//
+global_set_key("C-z", "shell");
 
 //
 // default bg of the frame, default text color
