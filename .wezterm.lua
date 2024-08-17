@@ -1,3 +1,6 @@
+-- basic wezterm config
+-- msw 081624
+
 local wezterm = require 'wezterm'
 
 local config = {}
