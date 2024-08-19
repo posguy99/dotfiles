@@ -15,6 +15,10 @@ local config = {}
 
     -- https://wezfurlong.org/wezterm/config/lua/config/hide_tab_bar_if_only_one_tab.html
     config.hide_tab_bar_if_only_one_tab = true
+
+    -- this is related to the application running in the wezterm window, not the window
+    -- itself.  think "what happens if you type "exit" at a shell prompt.
+    -- https://wezfurlong.org/wezterm/config/lua/config/exit_behavior.html
     config.exit_behavior = 'CloseOnCleanExit'
 
 return config
