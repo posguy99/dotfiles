@@ -15,5 +15,6 @@ local config = {}
 
     -- https://wezfurlong.org/wezterm/config/lua/config/hide_tab_bar_if_only_one_tab.html
     config.hide_tab_bar_if_only_one_tab = true
+    config.exit_behavior = 'CloseOnCleanExit'
 
 return config
