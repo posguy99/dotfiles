@@ -103,8 +103,10 @@ set_style("keyword", "font-weight", "bold");
 //
 // set_style("comment", "color", "676b79");
 // set_style("comment", "color", "4c4b74");
+// set_style("comment", "color", "4c4ba4");
+
 // 060126 brighten up comments
-set_style("comment", "color", "4c4ba4");
+set_style("comment", "color", "cc3e66");
 set_style("comment", "font-family", "sans");
 set_style("comment", "font-size", "12");
 set_style("comment", "font-style", "italic");
